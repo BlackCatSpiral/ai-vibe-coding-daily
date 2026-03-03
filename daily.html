@@ -1,220 +1,84 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Vibe Coding 早报</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 40px 20px;
-        }
-        .container { max-width: 800px; margin: 0 auto; }
-        .header { text-align: center; margin-bottom: 40px; color: white; }
-        .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
-        .header p { opacity: 0.9; }
-        
-        .nav { text-align: center; margin-bottom: 30px; }
-        .nav a {
-            display: inline-block;
-            padding: 12px 24px;
-            margin: 0 5px;
-            border-radius: 30px;
-            background: rgba(255,255,255,0.2);
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        .nav a:hover { background: rgba(255,255,255,0.3); }
-        .nav a.active { background: white; color: #667eea; }
-        
-        .page { display: none; }
-        .page.active { display: block; }
-        
-        .summary-box {
-            background: rgba(255,255,255,0.95);
-            border-radius: 16px;
-            padding: 24px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
-        .summary-box h2 { color: #667eea; font-size: 1.2rem; margin-bottom: 12px; }
-        .summary-box p { color: #444; line-height: 1.7; }
-        
-        .news-grid { display: grid; gap: 24px; }
-        .news-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-        .news-image { width: 100%; height: 200px; object-fit: cover; }
-        .news-content { padding: 24px; }
-        .news-tag {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        .tag-crisis { background: #fee; color: #c33; }
-        .tag-security { background: #ffe8e8; color: #d32f2f; }
-        .tag-update { background: #e3f2fd; color: #1976d2; }
-        .tag-trend { background: #e8f5e9; color: #388e3c; }
-        .tag-strategy { background: #fff3e0; color: #f57c00; }
-        .news-title { font-size: 1.3rem; color: #222; margin-bottom: 12px; }
-        .news-summary { color: #666; line-height: 1.7; margin-bottom: 16px; }
-        .news-meta { display: flex; justify-content: space-between; font-size: 0.85rem; color: #999; }
-        .news-link { color: #667eea; text-decoration: none; font-weight: 500; }
-        
-        .archive-box {
-            background: white;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
-        .archive-box h2 { color: #667eea; margin-bottom: 20px; }
-        .archive-list { list-style: none; }
-        .archive-list li { border-bottom: 1px solid #eee; }
-        .archive-list a {
-            display: block;
-            padding: 16px 0;
-            color: #333;
-            text-decoration: none;
-            font-size: 1.1rem;
-        }
-        .archive-list a:hover { color: #667eea; }
-        .archive-date { color: #999; font-size: 0.9rem; margin-left: 10px; }
-        
-        .footer { text-align: center; margin-top: 40px; color: white; opacity: 0.8; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>黑猫的AI每日报 | 2026-03-03</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+    :root{--neon-blue:#00f5ff;--neon-pink:#ff6b9d;--neon-purple:#b829dd;--dark-bg:#0a0a0f;--card-bg:rgba(20,20,35,0.8);}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Noto Sans SC',sans-serif;background:var(--dark-bg);min-height:100vh;padding:40px 20px;}
+    body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(90deg,rgba(0,245,255,0.03) 1px,transparent 1px),linear-gradient(rgba(0,245,255,0.03) 1px,transparent 1px);background-size:50px 50px;pointer-events:none;z-index:-1;}
+    .container{max-width:900px;margin:0 auto;}
+    .nav{text-align:center;margin-bottom:30px;}
+    .nav a{color:var(--neon-blue);text-decoration:none;font-family:'Orbitron',monospace;font-size:0.9rem;letter-spacing:2px;opacity:0.8;transition:all 0.3s;}
+    .nav a:hover{opacity:1;text-shadow:0 0 20px var(--neon-blue);}
+    .header{text-align:center;margin-bottom:50px;position:relative;}
+    .header::before{content:'';position:absolute;top:-20px;left:50%;transform:translateX(-50%);width:200px;height:2px;background:linear-gradient(90deg,transparent,var(--neon-blue),transparent);}
+    .cat-avatar{width:120px;height:120px;margin:0 auto 20px;border-radius:50%;border:3px solid var(--neon-blue);box-shadow:0 0 30px rgba(0,245,255,0.4);animation:catGlow 3s ease-in-out infinite;object-fit:cover;}
+    @keyframes catGlow{0%,100%{box-shadow:0 0 30px rgba(0,245,255,0.4);}50%{box-shadow:0 0 50px rgba(0,245,255,0.7);}}
+    .header h1{font-family:'Orbitron','Noto Sans SC',sans-serif;font-size:2.5rem;font-weight:900;background:linear-gradient(135deg,var(--neon-blue) 0%,var(--neon-pink) 50%,var(--neon-purple) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:4px;margin-bottom:15px;}
+    .header .date{font-family:'Orbitron',monospace;font-size:1rem;color:var(--neon-blue);opacity:0.8;letter-spacing:3px;}
+    .summary-box{background:var(--card-bg);border:1px solid rgba(0,245,255,0.3);border-radius:16px;padding:28px;margin-bottom:40px;box-shadow:0 0 40px rgba(0,245,255,0.1),inset 0 0 20px rgba(0,245,255,0.05);position:relative;overflow:hidden;}
+    .summary-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--neon-blue),transparent);}
+    .summary-box h2{color:var(--neon-blue);font-family:'Orbitron',sans-serif;font-size:1rem;margin-bottom:15px;letter-spacing:2px;text-transform:uppercase;}
+    .summary-box p{color:#ccc;line-height:1.8;font-size:1.1rem;}
+    .news-grid{display:grid;gap:30px;}
+    .news-card{background:var(--card-bg);border:1px solid rgba(0,245,255,0.2);border-radius:20px;overflow:hidden;position:relative;transition:all 0.4s cubic-bezier(0.4,0,0.2,1);}
+    .news-card:hover{transform:translateY(-8px);border-color:var(--neon-blue);box-shadow:0 20px 60px rgba(0,245,255,0.2);}
+    .card-glow{position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(0,245,255,0.1) 0%,transparent 50%,rgba(255,107,157,0.1) 100%);opacity:0;transition:opacity 0.4s;pointer-events:none;}
+    .news-card:hover .card-glow{opacity:1;}
+    .news-image{width:100%;height:220px;object-fit:cover;border-bottom:1px solid rgba(0,245,255,0.1);}
+    .news-content{padding:28px;}
+    .news-tag{display:inline-block;padding:6px 16px;border-radius:20px;font-size:0.75rem;font-weight:600;text-transform:uppercase;margin-bottom:15px;letter-spacing:1px;border:1px solid;}
+    .tag-crisis{background:rgba(255,0,0,0.1);color:#ff4444;border-color:rgba(255,0,0,0.3);}
+    .tag-security{background:rgba(255,0,0,0.1);color:#ff4444;border-color:rgba(255,0,0,0.3);}
+    .tag-update{background:rgba(0,245,255,0.1);color:var(--neon-blue);border-color:rgba(0,245,255,0.3);}
+    .tag-trend{background:rgba(0,255,136,0.1);color:#00ff88;border-color:rgba(0,255,136,0.3);}
+    .tag-strategy{background:rgba(255,107,157,0.1);color:var(--neon-pink);border-color:rgba(255,107,157,0.3);}
+    .tag-default{background:rgba(255,255,255,0.05);color:#888;border-color:rgba(255,255,255,0.2);}
+    .news-title{font-size:1.3rem;color:#fff;margin-bottom:15px;line-height:1.5;font-weight:600;}
+    .news-summary{color:#aaa;line-height:1.8;margin-bottom:20px;font-size:0.95rem;}
+    .news-meta{display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;color:#666;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);}
+    .news-link{color:var(--neon-blue);text-decoration:none;font-weight:500;transition:all 0.3s;}
+    .news-link:hover{color:var(--neon-pink);}
+    .footer{text-align:center;margin-top:60px;color:#666;font-size:0.9rem;font-family:'Orbitron',monospace;letter-spacing:2px;}
+    @media (max-width:600px){.header h1{font-size:1.8rem;letter-spacing:2px;}.news-title{font-size:1.1rem;}.cat-avatar{width:80px;height:80px;}}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>🤖 AI Vibe Coding 早报</h1>
-            <p>每日 AI 编程资讯 · 自动更新</p>
-        </header>
-        
-        <div class="nav">
-            <a href="#" onclick="showPage('latest'); return false;" id="nav-latest" class="active">📰 最新一期</a>
-            <a href="#" onclick="showPage('archive'); return false;" id="nav-archive">📚 历史归档</a>
-        </div>
-        
-        <!-- 最新一期 -->
-        <div id="page-latest" class="page active">
-            <div class="summary-box">
-                <h2>📌 一句话总结（2026年2月28日 星期六）</h2>
-                <p>AI氛围编码正在从"快速原型"走向"工程化治理"，开源社区面临AI生成代码的质量危机，而工具厂商则在安全性和可靠性上加速迭代。</p>
-            </div>
-            
-            <div class="news-grid">
-                <article class="news-card">
-                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop" class="news-image">
-                    <div class="news-content">
-                        <span class="news-tag tag-crisis">行业危机</span>
-                        <h3 class="news-title">"AI Slopageddon"引发开源维护者危机</h3>
-                        <p class="news-summary">AI生成的低质量代码贡献正在淹没开源项目。cURL、Ghostty、tldraw等项目被迫关闭外部贡献渠道。研究显示，cURL提交的20%是AI生成，有效率低至5%。这种"氛围编码"导致的参与度下降正在形成负反馈循环，威胁开源生态的可持续性。</p>
-                        <div class="news-meta">
-                            <span>InfoQ · 2026-02-24</span>
-                            <a href="https://www.infoq.com/news/2026/02/ai-floods-close-projects/" target="_blank" class="news-link">阅读全文 →</a>
-                        </div>
-                    </div>
-                </article>
-                
-                <article class="news-card">
-                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=400&fit=crop" class="news-image">
-                    <div class="news-content">
-                        <span class="news-tag tag-security">安全漏洞</span>
-                        <h3 class="news-title">Anthropic Claude Code安全漏洞曝光</h3>
-                        <p class="news-summary">Check Point研究人员发现Claude Code存在多个严重漏洞，攻击者可通过恶意配置文件在开发者设备上静默执行任意代码并窃取API密钥。漏洞包括代码注入(CVSS 8.7)、MCP服务器配置绕过(CVSS 8.7)、API密钥泄露(CVSS 5.3)。Anthropic已发布补丁修复。</p>
-                        <div class="news-meta">
-                            <span>SecurityWeek · 2026-02-26</span>
-                            <a href="https://www.securityweek.com/claude-code-flaws-exposed-developer-devices-to-silent-hacking/" target="_blank" class="news-link">阅读全文 →</a>
-                        </div>
-                    </div>
-                </article>
-                
-                <article class="news-card">
-                    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop" class="news-image">
-                    <div class="news-content">
-                        <span class="news-tag tag-update">重大更新</span>
-                        <h3 class="news-title">OpenClaw发布2026.2.26重大更新</h3>
-                        <p class="news-summary">OpenClaw最新版本引入外部密钥管理完整工作流、ACP/线程绑定代理支持、代理路由CLI工具、Codex/WebSocket传输优化等重要功能。同时修复了Telegram DM白名单、消息队列恢复、Discord语音可靠性等数十个问题。社区持续活跃。</p>
-                        <div class="news-meta">
-                            <span>GitHub Releases · 2026-02-27</span>
-                            <a href="https://github.com/openclaw/openclaw/releases" target="_blank" class="news-link">阅读全文 →</a>
-                        </div>
-                    </div>
-                </article>
-                
-                <article class="news-card">
-                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=400&fit=crop" class="news-image">
-                    <div class="news-content">
-                        <span class="news-tag tag-trend">行业趋势</span>
-                        <h3 class="news-title">Vibe Coding成为新的差异化竞争力</h3>
-                        <p class="news-summary">随着AI模型能力趋于同质化，"氛围编码"正成为营销和技术团队的新差异化因素。当所有人使用相同的AI模型时，真正的区别在于团队如何运用AI解锁创造力。通过"修补节"等活动，非技术人员也能用自然语言描述需求并生成功能原型。</p>
-                        <div class="news-meta">
-                            <span>MediaPost · 2026-02-27</span>
-                            <a href="https://www.mediapost.com/publications/article/413126/why-vibe-is-the-new-differentiation.html" target="_blank" class="news-link">阅读全文 →</a>
-                        </div>
-                    </div>
-                </article>
-                
-                <article class="news-card">
-                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=400&fit=crop" class="news-image">
-                    <div class="news-content">
-                        <span class="news-tag tag-strategy">战略蓝图</span>
-                        <h3 class="news-title">2026年Vibe Coding战略蓝图发布</h3>
-                        <p class="news-summary">80%以上的开发者正在使用或计划使用AI工具。但2025年的"氛围宿醉"暴露出安全漏洞(40%AI生成代码存在安全问题)、架构债务危机等挑战。2026年最佳实践包括：原子化任务分解、增量集成验证、自动化质量门禁。Windsurf、Cursor、Replit Agent引领更严谨的"工程化氛围"方法。</p>
-                        <div class="news-meta">
-                            <span>Keywords Studios · 2026-02-04</span>
-                            <a href="https://www.keywordsstudios.com/en/about-us/news-events/news/the-state-of-vibe-coding-a-2026-strategic-blueprint/" target="_blank" class="news-link">阅读全文 →</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-        
-        <!-- 历史归档 -->
-        <div id="page-archive" class="page">
-            <div class="archive-box">
-                <h2>📚 历史文章</h2>
-                <ul class="archive-list">
-                    <li>
-                        <a href="#" onclick="showPage('latest'); return false;">
-                            AI Vibe Coding 早报 
-                            <span class="archive-date">2026年2月28日 星期六</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        
-        <footer class="footer">
-            <p>由 OpenClaw AI 自动生成 · 每日更新</p>
-        </footer>
+  <div class="container">
+    <div class="nav">
+      <a href="index.html">← 查看历史归档</a>
     </div>
-
-    <script>
-        function showPage(pageName) {
-            var pages = document.getElementsByClassName('page');
-            for (var i = 0; i < pages.length; i++) {
-                pages[i].classList.remove('active');
-            }
-            
-            var navs = document.querySelectorAll('.nav a');
-            for (var i = 0; i < navs.length; i++) {
-                navs[i].classList.remove('active');
-            }
-            
-            document.getElementById('page-' + pageName).classList.add('active');
-            document.getElementById('nav-' + pageName).classList.add('active');
-        }
-    </script>
+    <header class="header">
+      <img src="black-cat-avatar.jpg" alt="黑猫" class="cat-avatar">
+      <h1>黑猫的AI每日报</h1>
+      <p class="date">2026年3月3日 星期二</p>
+    </header>
+    <div class="summary-box">
+      <h2>◆ 每日摘要</h2>
+      <p>今日AI Vibe Coding领域关注：今日AI资讯等最新动态。</p>
+    </div>
+    <div class="news-grid">
+      <article class="news-card">
+        <div class="card-glow"></div>
+        <img src="https://images.unsplash.com/photo-71831040?w=800&h=400&fit=crop" alt="今日AI资讯" class="news-image">
+        <div class="news-content">
+          <span class="news-tag tag-default">提示</span>
+          <h3 class="news-title">今日AI资讯</h3>
+          <p class="news-summary">今日暂无重大AI新闻更新。</p>
+          <div class="news-meta">
+            <span>OpenClaw AI · 2026-03-03</span>
+            <a href="#" target="_blank" class="news-link">阅读全文 →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+    <footer class="footer">
+      <p>黑猫的AI每日报 · 每日更新</p>
+    </footer>
+  </div>
 </body>
 </html>
