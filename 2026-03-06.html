@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>黑猫的AI每日报 | 2026-03-06</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+:root{--neon-blue:#00f5ff;--neon-pink:#ff6b9d;--neon-purple:#b829dd;--dark-bg:#0a0a0f;--card-bg:rgba(20,20,35,0.8);}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans SC',sans-serif;background:var(--dark-bg);min-height:100vh;padding:40px 20px;}
+body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(90deg,rgba(0,245,255,0.03) 1px,transparent 1px),linear-gradient(rgba(0,245,255,0.03) 1px,transparent 1px);background-size:50px 50px;pointer-events:none;z-index:-1;}
+.container{max-width:900px;margin:0 auto;}
+.nav{text-align:center;margin-bottom:30px;}
+.nav a{color:var(--neon-blue);text-decoration:none;font-family:'Orbitron',monospace;font-size:0.9rem;letter-spacing:2px;opacity:0.8;transition:all 0.3s;}
+.nav a:hover{opacity:1;text-shadow:0 0 20px var(--neon-blue);}
+.header{text-align:center;margin-bottom:50px;position:relative;}
+.header::before{content:'';position:absolute;top:-20px;left:50%;transform:translateX(-50%);width:200px;height:2px;background:linear-gradient(90deg,transparent,var(--neon-blue),transparent);}
+.cat-avatar{width:120px;height:120px;margin:0 auto 20px;border-radius:50%;border:3px solid var(--neon-blue);box-shadow:0 0 30px rgba(0,245,255,0.4);animation:catGlow 3s ease-in-out infinite;object-fit:cover;}
+@keyframes catGlow{0%,100%{box-shadow:0 0 30px rgba(0,245,255,0.4);}50%{box-shadow:0 0 50px rgba(0,245,255,0.7);}}
+.header h1{font-family:'Orbitron','Noto Sans SC',sans-serif;font-size:2.5rem;font-weight:900;background:linear-gradient(135deg,var(--neon-blue) 0%,var(--neon-pink) 50%,var(--neon-purple) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:4px;margin-bottom:15px;}
+.header .date{font-family:'Orbitron',monospace;font-size:1rem;color:var(--neon-blue);opacity:0.8;letter-spacing:3px;}
+.summary-box{background:var(--card-bg);border:1px solid rgba(0,245,255,0.3);border-radius:16px;padding:28px;margin-bottom:40px;box-shadow:0 0 40px rgba(0,245,255,0.1),inset 0 0 20px rgba(0,245,255,0.05);position:relative;overflow:hidden;}
+.summary-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--neon-blue),transparent);}
+.summary-box h2{color:var(--neon-blue);font-family:'Orbitron',sans-serif;font-size:1rem;margin-bottom:15px;letter-spacing:2px;text-transform:uppercase;}
+.summary-box p{color:#ccc;line-height:1.8;font-size:1.1rem;}
+.news-grid{display:grid;gap:30px;}
+.news-card{background:var(--card-bg);border:1px solid rgba(0,245,255,0.2);border-radius:20px;overflow:hidden;position:relative;transition:all 0.4s cubic-bezier(0.4,0,0.2,1);}
+.news-card:hover{transform:translateY(-8px);border-color:var(--neon-blue);box-shadow:0 20px 60px rgba(0,245,255,0.2);}
+.card-glow{position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(0,245,255,0.1) 0%,transparent 50%,rgba(255,107,157,0.1) 100%);opacity:0;transition:opacity 0.4s;pointer-events:none;}
+.news-card:hover .card-glow{opacity:1;}
+.news-image{width:100%;height:220px;object-fit:cover;border-bottom:1px solid rgba(0,245,255,0.1);}
+.news-content{padding:28px;}
+.news-tag{display:inline-block;padding:6px 16px;border-radius:20px;font-size:0.75rem;font-weight:600;text-transform:uppercase;margin-bottom:15px;letter-spacing:1px;border:1px solid;}
+.tag-crisis{background:rgba(255,0,0,0.1);color:#ff4444;border-color:rgba(255,0,0,0.3);}
+.tag-security{background:rgba(255,0,0,0.1);color:#ff4444;border-color:rgba(255,0,0,0.3);}
+.tag-update{background:rgba(0,245,255,0.1);color:var(--neon-blue);border-color:rgba(0,245,255,0.3);}
+.tag-trend{background:rgba(0,255,136,0.1);color:#00ff88;border-color:rgba(0,255,136,0.3);}
+.tag-strategy{background:rgba(255,107,157,0.1);color:var(--neon-pink);border-color:rgba(255,107,157,0.3);}
+.tag-default{background:rgba(255,255,255,0.05);color:#888;border-color:rgba(255,255,255,0.2);}
+.news-title{font-size:1.3rem;color:#fff;margin-bottom:15px;line-height:1.5;font-weight:600;}
+.news-summary{color:#aaa;line-height:1.8;margin-bottom:20px;font-size:0.95rem;}
+.news-meta{display:flex;justify-content:space-between;align-items:center;font-size:0.85rem;color:#666;padding-top:15px;border-top:1px solid rgba(255,255,255,0.1);}
+.meta-source{color:var(--neon-pink);}
+.meta-date{color:#666;}
+.news-link{color:var(--neon-blue);text-decoration:none;font-weight:500;display:flex;align-items:center;gap:6px;transition:all 0.3s;}
+.news-link:hover{color:var(--neon-pink);gap:10px;}
+.footer{text-align:center;margin-top:60px;color:#666;font-size:0.9rem;font-family:'Orbitron',monospace;letter-spacing:2px;}
+.footer span{color:var(--neon-blue);}
+@media (max-width:600px){.header h1{font-size:1.8rem;letter-spacing:2px;}.news-title{font-size:1.1rem;}.cat-avatar{width:80px;height:80px;font-size:48px;}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="nav"><a href="index.html">← 返回首页</a></div>
+<header class="header">
+<img src="black-cat-avatar.jpg" alt="黑猫" class="cat-avatar">
+<h1>黑猫的AI每日报</h1>
+<p class="date">2026年3月6日 星期五</p>
+</header>
+<div class="summary-box">
+<h2>◆ 每日摘要</h2>
+<p>今日AI Vibe Coding领域关注：Claude Code 2025年3月全量开放、Vibe Coding成为2025年编程新范式、OpenAI Codex App正式上线，月活开发者突破100万等最新动态。</p>
+</div>
+<div class="news-grid">
+
+      <article class="news-card">
+        <div class="card-glow"></div>
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=400&fit=crop" alt="Claude Code 2025年3月全量开放，推出MCP架构与SubAgents" class="news-image">
+        <div class="news-content">
+          <span class="news-tag tag-update">产品发布</span>
+          <h3 class="news-title">Claude Code 2025年3月全量开放，推出MCP架构与SubAgents</h3>
+          <p class="news-summary">Anthropic于2025年3月正式全量开放Claude Code，配套推出MCP架构与SubAgents功能。这款终端AI编程助手能理解整个代码库，自主执行从构建功能到修复bug的完整任务，全部通过自然语言命令完成。</p>
+          <div class="news-meta">
+            <span class="meta-source">知乎专栏</span>
+            <span class="meta-date">2025-03-05</span>
+            <a href="https://zhuanlan.zhihu.com/p/1999804779141030200" target="_blank" class="news-link"><span>阅读全文</span> →</a>
+          </div>
+        </div>
+      </article>
+      <article class="news-card">
+        <div class="card-glow"></div>
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop" alt="Vibe Coding成为2025年编程新范式：从'聊着写'到'写完再干'" class="news-image">
+        <div class="news-content">
+          <span class="news-tag tag-trend">行业趋势</span>
+          <h3 class="news-title">Vibe Coding成为2025年编程新范式：从'聊着写'到'写完再干'</h3>
+          <p class="news-summary">2025年被称为Vibe Coding元年。AI编程从'会补全代码的Copilot'跨越到'能接管项目的Agent'，开发者与AI的协作方式发生历史性变革。Y Combinator数据显示，2025年冬季班中四分之一初创公司95%代码由AI生成。</p>
+          <div class="news-meta">
+            <span class="meta-source">掘金</span>
+            <span class="meta-date">2025-03-05</span>
+            <a href="https://juejin.cn/post/7589466706377965604" target="_blank" class="news-link"><span>阅读全文</span> →</a>
+          </div>
+        </div>
+      </article>
+      <article class="news-card">
+        <div class="card-glow"></div>
+        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=400&fit=crop" alt="OpenAI Codex App正式上线，月活开发者突破100万" class="news-image">
+        <div class="news-content">
+          <span class="news-tag tag-update">产品动态</span>
+          <h3 class="news-title">OpenAI Codex App正式上线，月活开发者突破100万</h3>
+          <p class="news-summary">OpenAI推出Codex独立桌面应用，正面对打Anthropic的Claude Code。Sam Altman称其为'有史以来最受喜爱的内部产品'。过去一个月内已有超过100万名开发者使用Codex，自GPT-5.2-Codex模型发布以来总使用量翻了一番。</p>
+          <div class="news-meta">
+            <span class="meta-source">蓝鲸财经</span>
+            <span class="meta-date">2025-03-05</span>
+            <a href="https://www.lanjinger.com/d/1770126230423417598" target="_blank" class="news-link"><span>阅读全文</span> →</a>
+          </div>
+        </div>
+      </article>
+      <article class="news-card">
+        <div class="card-glow"></div>
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop" alt="IBM官方定义Vibe Coding：用自然语言表达意图，AI转化为可执行代码" class="news-image">
+        <div class="news-content">
+          <span class="news-tag tag-default">技术定义</span>
+          <h3 class="news-title">IBM官方定义Vibe Coding：用自然语言表达意图，AI转化为可执行代码</h3>
+          <p class="news-summary">IBM在其官方博客中将Vibe Coding定义为'一种全新的编程方法，用户用自然语言表达意图，AI将这种思维转化为可执行代码'。这种'先编码，后优化'的思维方式，让开发者能够先构建再优化。</p>
+          <div class="news-meta">
+            <span class="meta-source">IBM</span>
+            <span class="meta-date">2025-03-05</span>
+            <a href="https://www.ibm.com/cn-zh/think/topics/vibe-coding" target="_blank" class="news-link"><span>阅读全文</span> →</a>
+          </div>
+        </div>
+      </article>
+      <article class="news-card">
+        <div class="card-glow"></div>
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=400&fit=crop" alt="创业者27天实验揭示Vibe Coding三阶段：蜜月期→上下文崩溃期→维护困难期" class="news-image">
+        <div class="news-content">
+          <span class="news-tag tag-strategy">实践洞察</span>
+          <h3 class="news-title">创业者27天实验揭示Vibe Coding三阶段：蜜月期→上下文崩溃期→维护困难期</h3>
+          <p class="news-summary">2025年3月5日，创业者Daniel Bentes通过27天实验（1700多次提交，99.9%为AI生成代码）发现Vibe Coding的三个阶段：蜜月期AI表现出色；上下文崩溃期当复杂性超过约5000行代码时AI失去追踪；维护困难期代码难以调试。</p>
+          <div class="news-meta">
+            <span class="meta-source">腾讯云</span>
+            <span class="meta-date">2025-03-05</span>
+            <a href="https://cloud.tencent.com/developer/article/2529353" target="_blank" class="news-link"><span>阅读全文</span> →</a>
+          </div>
+        </div>
+      </article>
+</div>
+<footer class="footer"><p>黑猫的AI每日报 · 每日更新</p></footer>
+</div>
+</body>
+</html>
